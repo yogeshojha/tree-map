@@ -1,7 +1,7 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var MapboxClient = require('mapbox/lib/services/datasets');
 var dataset = 'ciydajj8h008m33qrmu9gch34';
-var DATASETS_BASE = 'https://api.mapbox.com/datasets/v1/planemad/' + dataset + '/';
+var DATASETS_BASE = 'https://api.mapbox.com/datasets/v1/gubbilabs/' + dataset + '/';
 var mapboxAccessDatasetToken = 'sk.eyJ1IjoiZ3ViYmlsYWJzIiwiYSI6ImNpeWRhb2Q0YTAwODUzMnFyZ3ZndDZubGIifQ.IB9WEb26TGWsMSV9n18Txg';
 var mapbox = new MapboxClient(mapboxAccessDatasetToken);
 
@@ -11,7 +11,7 @@ var _tmp = {};
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ3ViYmlsYWJzIiwiYSI6IndJUmJRVHMifQ.4IS56e-5f2uZBSc8soyrQA';
 var map = new mapboxgl.Map({
     container: 'map', // container id
-    style: 'mapbox://styles/planemad/cip0m8hzf0003dhmh432q7g2k', //stylesheet location
+    style: 'mapbox://styles/gubbilabs/cihmv3zoq006qbjkna9pr33ny', //stylesheet location
     center: [77.64, 12.98], // starting position
     zoom: 16, // starting zoom
     hash: true,
