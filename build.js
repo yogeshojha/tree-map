@@ -32,7 +32,8 @@ today = mm+'/'+dd+'/'+yyyy;
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ3ViYmlsYWJzIiwiYSI6IndJUmJRVHMifQ.4IS56e-5f2uZBSc8soyrQA';
 var map = new mapboxgl.Map({
     container: 'map', // container id
-    style: 'mapbox://styles/gubbilabs/cihmv3zoq006qbjkna9pr33ny', //stylesheet location
+//    style: 'mapbox://styles/gubbilabs/cihmv3zoq006qbjkna9pr33ny', //stylesheet location
+    style: 'mapbox://styles/gubbilabs/ciydoyf7d00012sntubulqmeq', // stylesheet satellite
     center: [77.64, 12.98], // starting position
     zoom: 16, // starting zoom
     hash: true,
