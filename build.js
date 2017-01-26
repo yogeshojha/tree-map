@@ -105,7 +105,7 @@ map.on('style.load', function(e) {
 			
                 var formReviewer = "<fieldset><label>Contributed by: <span id='reviewer' style='padding:5px;background-color:#eee'></span></label><input type='text' name='reviewer' placeholder='name'></input></fieldset>"
 				
-                var popupHTML = "<form>" + formOptions + formReviewer + "<a id='updateOverlayFeature' class='button col4' href='#'>Save</a><a id='deleteOverlayFeature' class='button quiet fr col4' href='#' style=''>Delete</a></form>";
+                var popupHTML = "<form>" + formOptions + formReviewer + formTreename + formHeight + formGirth + formCanopywidth + formConfidence + "<a id='updateOverlayFeature' class='button col4' href='#'>Save</a><a id='deleteOverlayFeature' class='button quiet fr col4' href='#' style=''>Delete</a></form>";
                 var popup = new mapboxgl.Popup()
                     .setLngLat(e.lngLat)
                     .setHTML(popupHTML)
@@ -116,7 +116,7 @@ map.on('style.load', function(e) {
                     $("input[name=review][value=" + feature.properties["natural"] + "]").prop('checked', true);
                     $("#reviewer").html(feature.properties["contributed_by"]);
 					
-					$("#treename").html(feature.properties["treename"]);
+		$("#treename").html(feature.properties["treename"]);
                     
                     newOverlayFeature = feature;
                     newOverlayFeature["id"] = feature.properties["id"];
