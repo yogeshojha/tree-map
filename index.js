@@ -28,6 +28,7 @@ var geolocate = map.addControl(new mapboxgl.Geolocate({
 }));
 map.addControl(new mapboxgl.Navigation());
 
+map.addControl(new mapboxgl.GeolocateControl());
 
 // Layer for review markers
 var overlayDataSource = new mapboxgl.GeoJSONSource({
