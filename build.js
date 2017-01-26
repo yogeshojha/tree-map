@@ -4,8 +4,7 @@ var dataset = 'ciydajj8h008m33qrmu9gch34';
 var DATASETS_BASE = 'https://api.mapbox.com/datasets/v1/gubbilabs/' + dataset + '/';
 var mapboxAccessDatasetToken = 'sk.eyJ1IjoiZ3ViYmlsYWJzIiwiYSI6ImNpeWRhb2Q0YTAwODUzMnFyZ3ZndDZubGIifQ.IB9WEb26TGWsMSV9n18Txg';
 var mapbox = new MapboxClient(mapboxAccessDatasetToken);
-// var geolocate = document.getElementById('geolocate');
-	
+
 var reviewer;
 var treename;
 var height;
@@ -34,20 +33,18 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZ3ViYmlsYWJzIiwiYSI6IndJUmJRVHMifQ.4IS56e-5f2
 var map = new mapboxgl.Map({
     container: 'map', // container id
 //    style: 'mapbox://styles/gubbilabs/cihmv3zoq006qbjkna9pr33ny', //stylesheet location
-//    style: 'mapbox://styles/gubbilabs/ciydoyf7d00012sntubulqmeq', // stylesheet satellite
-    style: 'mapbox://styles/gubbilabs/ciye6o6jb00162qmlsfao1et5', //stylesheet streets
-    center: [77.59, 12.98], // starting position
-    zoom: 11, // starting zoom
+    style: 'mapbox://styles/gubbilabs/ciydoyf7d00012sntubulqmeq', // stylesheet satellite
+    center: [77.64, 12.98], // starting position
+    zoom: 16, // starting zoom
     hash: true,
     attributionControl: false
 });
 
-var geolocate = map.addControl(new mapboxgl.GeolocateControl({
+var geolocate = map.addControl(new mapboxgl.Geolocate({
     position: 'bottom-right'
- }));
+}));
 map.addControl(new mapboxgl.Navigation());
 
-// map.addControl(new mapboxgl.GeolocateControl());
 
 // Layer for review markers
 var overlayDataSource = new mapboxgl.GeoJSONSource({
@@ -92,7 +89,6 @@ map.on('style.load', function(e) {
                     "coordinates": [
 
                     ],
-			
                     "type": "Point"
                 }
             };
