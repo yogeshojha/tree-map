@@ -52,7 +52,7 @@ var inputs = layerList.getElementsByTagName('input');
 
 function switchLayer(layer) {
     var layerId = layer.target.id;
-    map.setStyle('mapbox://styles/gubbilabs/' + layerId);
+    map.setStyle('mapbox://styles/gubbilabs/' + layerId +);
 }
 
 for (var i = 0; i < inputs.length; i++) {
