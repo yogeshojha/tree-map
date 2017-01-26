@@ -13,6 +13,21 @@ var canopywidth;
 var confidence;
 
 var _tmp = {};
+	
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+
+if(dd<10) {
+    dd='0'+dd
+} 
+
+if(mm<10) {
+    mm='0'+mm
+} 
+
+today = mm+'/'+dd+'/'+yyyy;
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ3ViYmlsYWJzIiwiYSI6IndJUmJRVHMifQ.4IS56e-5f2uZBSc8soyrQA';
 var map = new mapboxgl.Map({
@@ -93,15 +108,15 @@ map.on('style.load', function(e) {
             function overlayFeatureForm(feature) {
                 var formOptions = "<div class='radio-pill pill pad1y clearfix'><input id='valid' type='radio' name='review' value='tree' checked='checked'><label for='tree' class='short button icon check fill-green'>tree</label><input id='sapling' type='radio' name='review' value='sapling'><label for='sapling' class='short button icon check fill-red'>sapling</label></div>";
 				
-				var formTreename = "<fieldset><label>Tree Name: <span id='treename' style='padding:5px;background-color:#eee'></span></label><input type='text' name='treename' placeholder='treename'></input></fieldset>"
+				var formTreename = "<fieldset><label>Tree Name: <span id='treename' style='background-color:#eee'></span></label><input type='text' name='treename' placeholder='treename'></input></fieldset>"
 				
-				var formHeight = "<fieldset><label>Height: <span id='height' style='padding:5px;background-color:#eee'></span></label><input type='text' name='height' placeholder='height'></input></fieldset>"
+				var formHeight = "<fieldset><label>Height (metres): <span id='height' style='background-color:#eee'></span></label><input type='text' name='height' placeholder='height'></input></fieldset>"
 				
-				var formGirth = "<fieldset><label>Girth: <span id='girth' style='padding:5px;background-color:#eee'></span></label><input type='text' name='girth' placeholder='girth'></input></fieldset>"
+				var formGirth = "<fieldset><label>Girth (cm): <span id='girth' style='background-color:#eee'></span></label><input type='text' name='girth' placeholder='girth'></input></fieldset>"
 				
-				var formCanopywidth = "<fieldset><label>Canopy width: <span id='canopywidth' style='padding:5px;background-color:#eee'></span></label><input type='text' name='canopywidth' placeholder='canopywidth'></input></fieldset>"
+				var formCanopywidth = "<fieldset><label>Canopy width (metres): <span id='canopywidth' style='background-color:#eee'></span></label><input type='text' name='canopywidth' placeholder='canopywidth'></input></fieldset>"
 
-                var formConfidence = "<div class='radio-pill pill pad1y clearfix'><input id='valid' type='radio' name='confidence' value='yes' checked='checked'><label for='yes' class='short button icon check fill-green'>Yes</label><input id='no' type='radio' name='review' value='no'><label for='no' class='short button icon check fill-red'>No</label></div>";
+                var formConfidence = "<label>Confidence: <span id='confidence' style='padding:5px;background-color:#eee'></span></label><div class='radio-pill pill pad1y clearfix'><input id='yes' type='radio' name='confidence' value='yes' checked='checked'><label for='yes' class='short button icon check fill-green'>Yes</label><input id='no' type='radio' name='confidence' value='no'><label for='no' class='short button icon check fill-red'>No</label></div>";
 			
                 var formReviewer = "<fieldset><label>Contributed by: <span id='reviewer' style='padding:5px;background-color:#eee'></span></label><input type='text' name='reviewer' placeholder='name'></input></fieldset>"
 				
@@ -149,6 +164,9 @@ map.on('style.load', function(e) {
                     newOverlayFeature.properties["canopywidth"] = canopywidth;
 
                     newOverlayFeature.properties["confidence"] = $("input[name=confidence]:checked").val();
+			
+		    newOverlayFeature.properties["timestamp"] = today;
+
 					
 
                     popup.remove();
