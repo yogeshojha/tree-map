@@ -73,6 +73,9 @@ map.on('style.load', function(e) {
                     "coordinates": [
 
                     ],
+	"layout": {
+            "icon-image": "rocket-15"
+        },
                     "type": "Point"
                 }
             };
