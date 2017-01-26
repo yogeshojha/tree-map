@@ -34,7 +34,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZ3ViYmlsYWJzIiwiYSI6IndJUmJRVHMifQ.4IS56e-5f2
 var map = new mapboxgl.Map({
     container: 'map', // container id
 //    style: 'mapbox://styles/gubbilabs/cihmv3zoq006qbjkna9pr33ny', //stylesheet location
-    style: 'mapbox://styles/gubbilabs/ciydoyf7d00012sntubulqmeq', // stylesheet satellite
+//    style: 'mapbox://styles/gubbilabs/ciydoyf7d00012sntubulqmeq', // stylesheet satellite
+    style: 'mapbox://styles/gubbilabs/ciye6o6jb00162qmlsfao1et5', //stylesheet streets
     center: [77.59, 12.98], // starting position
     zoom: 11, // starting zoom
     hash: true,
@@ -46,7 +47,7 @@ var geolocate = map.addControl(new mapboxgl.Geolocate({
  }));
 map.addControl(new mapboxgl.Navigation());
 
-// map.addControl(new mapboxgl.GeolocateControl({ position: 'bottom-right' }));
+map.addControl(new mapboxgl.GeolocateControl());
 
 // Layer for review markers
 var overlayDataSource = new mapboxgl.GeoJSONSource({
@@ -91,6 +92,9 @@ map.on('style.load', function(e) {
                     "coordinates": [
 
                     ],
+			 "layout": {
+            "icon-image": "rocket-15"
+        },
                     "type": "Point"
                 }
             };
