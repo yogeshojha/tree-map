@@ -5,6 +5,12 @@ var mapboxAccessDatasetToken = 'sk.eyJ1IjoiZ3ViYmlsYWJzIiwiYSI6ImNpeWRhb2Q0YTAwO
 var mapbox = new MapboxClient(mapboxAccessDatasetToken);
 
 var reviewer;
+var treename;
+var height;
+var girth;
+var canopywidth;
+var confidence;
+
 var _tmp = {};
 
 mapboxgl.accessToken = 'pk.eyJ1IjoiZ3ViYmlsYWJzIiwiYSI6IndJUmJRVHMifQ.4IS56e-5f2uZBSc8soyrQA';
@@ -85,7 +91,18 @@ map.on('style.load', function(e) {
 
             function overlayFeatureForm(feature) {
                 var formOptions = "<div class='radio-pill pill pad1y clearfix'><input id='valid' type='radio' name='review' value='tree' checked='checked'><label for='tree' class='short button icon check fill-green'>tree</label><input id='sapling' type='radio' name='review' value='sapling'><label for='sapling' class='short button icon check fill-red'>sapling</label></div>";
-                var formReviewer = "<fieldset><label>Contributed by: <span id='reviewer' style='padding:5px;background-color:#eee'></span></label><input type='text' name='reviewer' placeholder='name'></input></fieldset>"
+				
+				var formTreename = "<fieldset><label>Tree Name: <span id='treename' style='padding:5px;background-color:#eee'></span></label><input type='text' name='treename' placeholder='treename'></input></fieldset>"
+				
+				var formHeight = "<fieldset><label>Height: <span id='height' style='padding:5px;background-color:#eee'></span></label><input type='text' name='height' placeholder='height'></input></fieldset>"
+				
+				var formGirth = "<fieldset><label>Girth: <span id='girth' style='padding:5px;background-color:#eee'></span></label><input type='text' name='girth' placeholder='girth'></input></fieldset>"
+				
+				var formCanopywidth = "<fieldset><label>Canopy width: <span id='canopywidth' style='padding:5px;background-color:#eee'></span></label><input type='text' name='canopywidth' placeholder='canopywidth'></input></fieldset>"
+
+                var formConfidence = "<div class='radio-pill pill pad1y clearfix'><input id='valid' type='radio' name='confidence' value='yes' checked='checked'><label for='yes' class='short button icon check fill-green'>Yes</label><input id='no' type='radio' name='review' value='no'><label for='no' class='short button icon check fill-red'>No</label></div>";
+				
+				var formReviewer = "<fieldset><label>Contributed by: <span id='reviewer' style='padding:5px;background-color:#eee'></span></label><input type='text' name='reviewer' placeholder='name'></input></fieldset>"
                 var popupHTML = "<form>" + formOptions + formReviewer + "<a id='updateOverlayFeature' class='button col4' href='#'>Save</a><a id='deleteOverlayFeature' class='button quiet fr col4' href='#' style=''>Delete</a></form>";
                 var popup = new mapboxgl.Popup()
                     .setLngLat(e.lngLat)
@@ -95,8 +112,11 @@ map.on('style.load', function(e) {
                 // Show existing status if available
                 if (feature) {
                     $("input[name=review][value=" + feature.properties["natural"] + "]").prop('checked', true);
-                    $("#reviewer").html(feature.properties["contributed_by"]);
-                    newOverlayFeature = feature;
+					$("#reviewer").html(feature.properties["contributed_by"]);
+                    
+					$("#treename").html(feature.properties["treename"]);
+                    
+					newOverlayFeature = feature;
                     newOverlayFeature["id"] = feature.properties["id"];
                     console.log(feature);
                 } else {
@@ -111,8 +131,24 @@ map.on('style.load', function(e) {
                 // Update dataset with feature status on clicking save
                 document.getElementById("updateOverlayFeature").onclick = function() {
                     newOverlayFeature.properties["natural"] = $("input[name=review]:checked").val();
+
                     reviewer = $("input[name=reviewer]").val();
                     newOverlayFeature.properties["contributed_by"] = reviewer;
+					
+					treename = $("input[name=treename]").val();
+                    newOverlayFeature.properties["treename"] = treename;
+					
+					height = $("input[name=height]").val();
+                    newOverlayFeature.properties["height"] = height;
+					
+					girth = $("input[name=rgirth]").val();
+                    newOverlayFeature.properties["girth"] = girth;
+					
+					canopywidth = $("input[name=canopywidth]").val();
+                    newOverlayFeature.properties["canopywidth"] = canopywidth;
+
+                    newOverlayFeature.properties["confidence"] = $("input[name=confidence]:checked").val();
+					
                     popup.remove();
                     mapbox.insertFeature(newOverlayFeature, dataset, function(err, response) {
                         console.log(response);
