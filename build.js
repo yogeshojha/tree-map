@@ -4,7 +4,7 @@ var dataset = 'ciydajj8h008m33qrmu9gch34';
 var DATASETS_BASE = 'https://api.mapbox.com/datasets/v1/gubbilabs/' + dataset + '/';
 var mapboxAccessDatasetToken = 'sk.eyJ1IjoiZ3ViYmlsYWJzIiwiYSI6ImNpeWRhb2Q0YTAwODUzMnFyZ3ZndDZubGIifQ.IB9WEb26TGWsMSV9n18Txg';
 var mapbox = new MapboxClient(mapboxAccessDatasetToken);
-var geolocate = document.getElementById('geolocate');
+// var geolocate = document.getElementById('geolocate');
 	
 var reviewer;
 var treename;
@@ -41,9 +41,9 @@ var map = new mapboxgl.Map({
     attributionControl: false
 });
 
-// var geolocate = map.addControl(new mapboxgl.Geolocate({
-//    position: 'bottom-right'
-// }));
+var geolocate = map.addControl(new mapboxgl.Geolocate({
+    position: 'bottom-right'
+ }));
 map.addControl(new mapboxgl.Navigation());
 
 map.addControl(new mapboxgl.GeolocateControl({ position: 'bottom-right' }));
