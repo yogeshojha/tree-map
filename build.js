@@ -4,7 +4,8 @@ var dataset = 'ciydajj8h008m33qrmu9gch34';
 var DATASETS_BASE = 'https://api.mapbox.com/datasets/v1/gubbilabs/' + dataset + '/';
 var mapboxAccessDatasetToken = 'sk.eyJ1IjoiZ3ViYmlsYWJzIiwiYSI6ImNpeWRhb2Q0YTAwODUzMnFyZ3ZndDZubGIifQ.IB9WEb26TGWsMSV9n18Txg';
 var mapbox = new MapboxClient(mapboxAccessDatasetToken);
-
+var geolocate = document.getElementById('geolocate');
+	
 var reviewer;
 var treename;
 var height;
@@ -34,17 +35,56 @@ var map = new mapboxgl.Map({
     container: 'map', // container id
 //    style: 'mapbox://styles/gubbilabs/cihmv3zoq006qbjkna9pr33ny', //stylesheet location
     style: 'mapbox://styles/gubbilabs/ciydoyf7d00012sntubulqmeq', // stylesheet satellite
-    center: [77.64, 12.98], // starting position
-    zoom: 16, // starting zoom
+    center: [77.59, 12.98], // starting position
+    zoom: 11, // starting zoom
     hash: true,
     attributionControl: false
 });
 
-var geolocate = map.addControl(new mapboxgl.Geolocate({
-    position: 'bottom-right'
-}));
-map.addControl(new mapboxgl.Navigation());
+// var geolocate = map.addControl(new mapboxgl.Geolocate({
+//    position: 'bottom-right'
+// }));
+// map.addControl(new mapboxgl.Navigation());
 
+var myLayer = L.mapbox.featureLayer().addTo(map);
+	
+	if (!navigator.geolocation) {
+    geolocate.innerHTML = 'Geolocation is not available';
+} else {
+    geolocate.onclick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        map.locate();
+    };
+}
+
+// Once we've got a position, zoom and center the map
+// on it, and add a single marker.
+map.on('locationfound', function(e) {
+    map.fitBounds(e.bounds);
+
+    myLayer.setGeoJSON({
+        type: 'Feature',
+        geometry: {
+            type: 'Point',
+            coordinates: [e.latlng.lng, e.latlng.lat]
+        },
+        properties: {
+            'title': 'Here I am!',
+            'marker-color': '#ff8888',
+            'marker-symbol': 'star'
+        }
+    });
+
+    // And hide the geolocation button
+    geolocate.parentNode.removeChild(geolocate);
+});
+
+// If the user chooses not to allow their location
+// to be shared, display an error message.
+map.on('locationerror', function() {
+    geolocate.innerHTML = 'Position could not be found';
+});
 
 // Layer for review markers
 var overlayDataSource = new mapboxgl.GeoJSONSource({
