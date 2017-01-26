@@ -7229,3 +7229,4 @@ define(function (require) {
 })(typeof define === 'function' && define.amd ? define : function (factory) { module.exports = factory(require); });
 
 },{"./lib/Promise":41,"./lib/TimeoutError":43,"./lib/apply":44,"./lib/decorators/array":45,"./lib/decorators/flow":46,"./lib/decorators/fold":47,"./lib/decorators/inspect":48,"./lib/decorators/iterate":49,"./lib/decorators/progress":50,"./lib/decorators/timed":51,"./lib/decorators/unhandledRejection":52,"./lib/decorators/with":53}]},{},[1]);
+
