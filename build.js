@@ -42,12 +42,12 @@ var map = new mapboxgl.Map({
     attributionControl: false
 });
 
-var geolocate = map.addControl(new mapboxgl.Geolocate({
+var geolocate = map.addControl(new mapboxgl.GeolocateControl({
     position: 'bottom-right'
  }));
 map.addControl(new mapboxgl.Navigation());
 
-map.addControl(new mapboxgl.GeolocateControl());
+// map.addControl(new mapboxgl.GeolocateControl());
 
 // Layer for review markers
 var overlayDataSource = new mapboxgl.GeoJSONSource({
