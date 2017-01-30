@@ -35,8 +35,8 @@ var map = new mapboxgl.Map({
 //    style: 'mapbox://styles/gubbilabs/cihmv3zoq006qbjkna9pr33ny', //stylesheet location
     // style: 'mapbox://styles/gubbilabs/ciydoyf7d00012sntubulqmeq', // stylesheet satellite
     style: 'mapbox://styles/gubbilabs/ciye6o6jb00162qmlsfao1et5', // stylesheet streets	
-    center: [77.64, 12.98], // starting position
-    zoom: 16, // starting zoom
+    center: [77.60, 12.98], // starting position
+    zoom: 12, // starting zoom
     hash: true,
     attributionControl: false
 });
