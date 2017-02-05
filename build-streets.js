@@ -114,11 +114,11 @@ map.on('style.load', function(e) {
 				
 				var formTreename = "<fieldset><label>Tree Name: <span id='treename' style='background-color:#eee'></span></label><input type='text' name='treename' placeholder='treename'></input></fieldset>"
 				
-				var formHeight = "<fieldset><label><strong>Additional attributes:</strong><br/>Height (metres): <span id='height' style='background-color:#eee'></span></label><input type='text' name='height' placeholder='height'></input></fieldset>"
+				var formHeight = "<fieldset><label><strong>Additional attributes:</strong><br/>Height (metres): <span id='height' style='background-color:#eee'></span></label><br /><input type='text' name='height' placeholder='height'></input></fieldset>"
 				
-				var formGirth = "<fieldset><label>Girth (cm): <span id='girth' style='background-color:#eee'></span></label><input type='text' name='girth' placeholder='girth'></input></fieldset>"
+				var formGirth = "<fieldset><label>Girth (cm): <span id='girth' style='background-color:#eee'></span></label><br /><input type='text' name='girth' placeholder='girth'></input></fieldset>"
 				
-				var formCanopywidth = "<fieldset><label>Canopy width (metres): <span id='canopywidth' style='background-color:#eee'></span></label><input type='text' name='canopywidth' placeholder='canopywidth'></input></fieldset>"
+				var formCanopywidth = "<fieldset><label>Canopy width (metres): <span id='canopywidth' style='background-color:#eee'></span></label><br /><input type='text' name='canopywidth' placeholder='canopywidth'></input></fieldset>"
 
                 var formConfidence = "<label>Confidence: <span id='confidence' style='padding:5px;background-color:#eee'></span></label><div class='radio-pill pill pad1y clearfix'><input id='yes' type='radio' name='confidence' value='yes' checked='checked'><label for='yes' class='short button icon check fill-green'>Yes</label><input id='no' type='radio' name='confidence' value='no'><label for='no' class='short button icon check fill-red'>No</label></div>";
 			
