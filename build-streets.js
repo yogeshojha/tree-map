@@ -125,7 +125,7 @@ map.on('style.load', function(e) {
                 var formReviewer = "<fieldset><label>Contributed by: <span id='reviewer' style='padding:5px;background-color:#eee'></span></label><input type='text' name='reviewer' placeholder='name'></input></fieldset>"
 				
                 // var popupHTML = "<form>" + formOptions + formReviewer + formTreename + formHeight + formGirth + formCanopywidth + formConfidence + "<a id='updateOverlayFeature' class='button col4' href='#'>Save</a><a id='deleteOverlayFeature' class='button quiet fr col4' href='#' style=''>Delete</a></form>";
-		var popupHTML = "<form>" + formOptions + formReviewer + formTreename + "<a id='updateOverlayFeature' class='button col4' href='#'>Save</a><a id='deleteOverlayFeature' class='button quiet fr col4 icon check fill-red' href='#' style=''>Delete</a>" + formHeight + formGirth + formCanopywidth + formConfidence + "</form>";    
+		var popupHTML = "<form>" + formOptions + formReviewer + formTreename + "<a id='updateOverlayFeature' class='button col4' href='#'>Save</a><a id='deleteOverlayFeature' class='button col4 fill-red' href='#' style=''>Delete</a></form>" + formHeight + formGirth + formCanopywidth + formConfidence;    
                 var popup = new mapboxgl.Popup()
                     .setLngLat(e.lngLat)
                     .setHTML(popupHTML)
