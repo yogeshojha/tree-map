@@ -48,7 +48,6 @@ map.addControl(new mapboxgl.Navigation());
 
 
 
-
 // Layer for review markers
 var overlayDataSource = new mapboxgl.GeoJSONSource({
     data: {}
@@ -110,22 +109,22 @@ map.on('style.load', function(e) {
             }
 
             function overlayFeatureForm(feature) {
-                var formOptions = "<div class='radio-pill pill pad1y clearfix'><input id='valid' type='radio' name='review' value='tree' checked='checked'><label for='tree' class='short button icon check fill-green'>tree</label><input id='sapling' type='radio' name='review' value='sapling'><label for='sapling' class='short button icon check fill-red'>sapling</label></div>";
+                var formOptions = "<div class='radio-pill pill pad1y clearfix'><div class='funkyradio'>        <div class='funkyradio-danger'><input type='radio' name='radio' id='radio4' checked /><label for='radio4'>Tree</label></div><div class='funkyradio-success'><input type='radio' name='radio' id='radio5' /><label for='radio5'>Saplings</label></div></div></div>";
+    			
+                var formTreename = "<form><div class='form-group'><input type='text' placeholder='Tree Name'></input></div></form>"
 				
-				var formTreename = "<fieldset><label>Tree Name: <span id='treename' style='background-color:#eee'></span></label><input type='text' name='treename' placeholder='treename'></input></fieldset>"
+				var formHeight = "</br><form><div class='form-group'><input type='text' placeholder='Additional Attributes , Height in Meters'></input></div></form>"
 				
-				var formHeight = "<fieldset><label><strong>Additional attributes:</strong><br/>Height (metres): <span id='height' style='background-color:#eee'></span></label><br /><input type='text' name='height' placeholder='height'></input></fieldset>"
+				var formGirth = "<form><div class='form-group'><input type='text' placeholder='Girth (cms)'></input></div></form></div>"
 				
-				var formGirth = "<fieldset><label>Girth (cm): <span id='girth' style='background-color:#eee'></span></label><br /><input type='text' name='girth' placeholder='girth'></input></fieldset>"
-				
-				var formCanopywidth = "<fieldset><label>Canopy width (metres): <span id='canopywidth' style='background-color:#eee'></span></label><br /><input type='text' name='canopywidth' placeholder='canopywidth'></input></fieldset>"
+				var formCanopywidth = "<form><div class='form-group'><input type='text' placeholder='Canopy Width (meters)'></input></div></form></div>"
 
-                var formConfidence = "<label>Confidence: <span id='confidence' style='padding:5px;background-color:#eee'></span></label><div class='radio-pill pill pad1y clearfix'><input id='yes' type='radio' name='confidence' value='yes' checked='checked'><label for='yes' class='short button icon check fill-green'>Yes</label><input id='no' type='radio' name='confidence' value='no'><label for='no' class='short button icon check fill-red'>No</label></div>";
+                var formConfidence = "<div class='funkyradio'>        <div class='funkyradio-success'><input type='radio' name='radio' id='radio4' checked /><label for='radio4'>Confidence??</label></div></div>";
 			
-                var formReviewer = "<fieldset><label>Contributed by: <span id='reviewer' style='padding:5px;background-color:#eee'></span></label><input type='text' name='reviewer' placeholder='name'></input></fieldset>"
+                var formReviewer = "<form><div class='form-group'><input type='text' placeholder='Contributer Name'></input></div></form>"
 				
                 // var popupHTML = "<form>" + formOptions + formReviewer + formTreename + formHeight + formGirth + formCanopywidth + formConfidence + "<a id='updateOverlayFeature' class='button col4' href='#'>Save</a><a id='deleteOverlayFeature' class='button quiet fr col4' href='#' style=''>Delete</a></form>";
-		var popupHTML = "<form>" + formOptions + formReviewer + formTreename + "<a id='updateOverlayFeature' class='button col4' href='#'>Save</a><a id='deleteOverlayFeature' class='button col4 fill-red' href='#' style=''>Delete</a>" + formHeight + formGirth + formCanopywidth + formConfidence + "</form>";    
+		var popupHTML = "<form class='try'>" + formOptions + formReviewer + formTreename + "<a id='updateOverlayFeature' class='button col12' href='#'>Save</a><br><a id='deleteOverlayFeature' class='button col12 fill-red' href='#' style=''>Delete</a>" + formHeight + formGirth + formCanopywidth + formConfidence + "</form>";    
                 var popup = new mapboxgl.Popup()
                     .setLngLat(e.lngLat)
                     .setHTML(popupHTML)
