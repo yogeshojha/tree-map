@@ -16,10 +16,10 @@
   </div>
   <div class='col12 clearfix'>
     <nav class='col3 v'>
-      <a href='index.html#welcome' class='block pad1y pad2x keyline-bottom active'>Welcome</a>
-      <a href='background.html' class='block pad1y pad2x keyline-bottom'>Background</a>
-      <a href='method-1.html' class='block pad1y pad2x keyline-bottom'>Method 1 - Mapping application</a>
-      <a href='method-2.html' class='block pad1y pad2x keyline-bottom'>Method 2 - Field papers</a>
+      <a href='index.php#welcome' class='block pad1y pad2x keyline-bottom active'>Welcome</a>
+      <a href='background.php' class='block pad1y pad2x keyline-bottom'>Background</a>
+      <a href='method-1.php' class='block pad1y pad2x keyline-bottom'>Method 1 - Mapping application</a>
+      <a href='method-2.php' class='block pad1y pad2x keyline-bottom'>Method 2 - Field papers</a>
       <a href='Datasheet Template - Urban Tree Mapping.pdf' class='block pad1y pad2x keyline-bottom'>Download the Datasheet</a>
 	  <a href='#' class='block pad1y pad2x keyline-bottom'>See what has been mapped</a>
 	  <a href='mailto:info@gubbilabs.in' class='block pad1y pad2x keyline-bottom'>Contact us</a>
@@ -29,8 +29,8 @@
       <p align="justify">Gubbi Labs has embarked upon carrying out a tree census in Bangalore. Several citizens have already come forward to learn about tree identification and the different tools used in mapping. Currently, as part of <a href="http://neralu.in/" target="_blank">Neralu 2017</a>, the tree festival, scheduled on Feb 18th and 19th, citizens young and old are mapping the trees in Indiranagar, Basavanagudi, Electronics City and Cooke Town. Schools are encouraged to participate in the mapping activity, which could help create awareness and appreciation, among the students, about the importance of trees. </p>
 	  <p align="justify">This page provides the documentation and guidelines for mapping trees in Bengaluru (and almost anywhere). Please go through the guidelines here and start mapping! We have different methods to map trees. They are:
       <ol>
-        <li><a href="method-1.html">Using the mapping application</a></li>
-        <li><a href="method-2.html">Using Field papers</a></li>
+        <li><a href="method-1.php">Using the mapping application</a></li>
+        <li><a href="method-2.php">Using Field papers</a></li>
       </ol>
       <p>Here's what the press is reporting about this:</p>
       <blockquote>
@@ -44,8 +44,8 @@
         <strong>Those interested are encouraged to go through theses pages and start mapping!</strong>
       </div>
       <div class='pad1y center'>
-	  <a href='map-streets.html' target="_blank" class='icon marker button'>Map using OSM Streets</a>
-      <a href='map-satellite.html' target="_blank" class='icon marker button'>Map using Mapbox Satellite</a>
+	  <a href='map-streets.php' target="_blank" class='icon marker button'>Map using OSM Streets</a>
+      <a href='map-satellite.php' target="_blank" class='icon marker button'>Map using Mapbox Satellite</a>
 
       </div>
     </div>

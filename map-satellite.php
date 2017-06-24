@@ -1,21 +1,9 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Open Tree Map - Bengaluru</title>
-  <meta name="description" content="OpenStreetMap Bengaluru Tree Map">
-  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-  <link rel='shortcut icon' href='http://www.gubbilabs.in/sites/default/files/nitobe_favicon_0_0.ico' type='image/x-icon'>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.19.1/mapbox-gl.js'></script>
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.19.1/mapbox-gl.css' rel='stylesheet' />
-  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.js'></script>
-  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v1.0.0/mapbox-gl-geocoder.css' type='text/css' />
-  <link href="https://www.mapbox.com/base/latest/base.css" rel="stylesheet">
-</head>
-
+<?php
+  include('includes/header.php');
+?>
 <style type="text/css">
 .mapname{
   position: absolute;
@@ -73,10 +61,11 @@
 .mapboxgl-popup-close-button{
   font-size: x-large;
 }
-	
+
 .mapboxgl-popup {
   width: auto;;
-}  
+}
+  
 
 </style>
 <body>
@@ -85,17 +74,17 @@
 <![endif]-->
 <div class='mapname'>
 <div class="dark">
-  <h3 class='fancy' style="color:#3887be;" >Open Tree Map - Bengaluru</h3>
+  <h3 class='fancy' style="color:#fff;" >Open Tree Map - Bengaluru</h3>
 </div>
 <div class='pad1y left'>
 	  <a href='index.html' class='icon home button'>Home</a> <br/><br/>
-	  <a href='map-satellite.html' class='icon marker button'>Satellite</a>
+	  <a href='map-streets.html' class='icon marker button'>Streets</a>
 </div>
 </div>
   <div class='col12 clearfix'>
     <div id='map' class=''></div>    
   </div>
  
-  <script src="build-streets.js"></script>
+  <script src="build-satellite.js"></script>
 </body>
 </html>
